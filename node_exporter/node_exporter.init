@@ -11,7 +11,7 @@
 USAGE="Usage: $0 {\e[00;32mstart\e[00m|\e[00;31mstop\e[00m|\e[00;31mkill\e[00m|\e[00;32mstatus\e[00m|\e[00;31mrestart\e[00m}"
 
 node_exporter_pid() {
-  echo `ps -ef | grep /usr/local/sbin/node_exporter | grep -v grep | tr -s " " |cut -d " " -f2`
+  echo `ps -ef | grep /usr/bin/node_exporter | grep -v grep | tr -s " " |cut -d " " -f2`
 }
 
 start() {
@@ -21,7 +21,7 @@ start() {
     echo -e "\e[00;31mNode Exporter is already running (pid: $pid)\e[00m"
   else
     echo -e "\e[00;32mStarting node_exporter\e[00m"
-    nohup /usr/local/sbin/node_exporter &
+    nohup /usr/bin/node_exporter &
     sleep 3
     status
   fi
